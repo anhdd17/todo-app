@@ -1,0 +1,46 @@
+# Node.js (Vue.js) dependencies
+/frontend/node_modules/
+
+# Backend dependencies (if using Node.js or similar)
+backend/node_modules/
+
+# Ignore build output
+/frontend/dist/
+/frontend/build/
+/backend/target/
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+
+# Ignore Docker related files
+.docker/
+
+# Ignore environment variable files
+*.env
+
+# Ignore logs
+*.log
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore package manager lock files (optional but good practice)
+frontend/package-lock.json
+frontend/yarn.lock
+backend/package-lock.json
+backend/yarn.lock
+
+# Ignore coverage reports (if using a test runner)
+coverage/
+
+# Ignore temporary files created by the operating system
+*.swp
+*.bak
+*.tmp
+
+# Ignore database files if applicable
+*.db
+*.sqlite
+*.sqlite3

@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    image: postgres:16.3-alpine
+    container_name: db
+    environment:
+      POSTGRES_DB: todo_app
+      POSTGRES_USER: todo_user
+      POSTGRES_PASSWORD: todo_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - todo-network
+
+  backend:
+    image: todoapp-backend
+    container_name: backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/todo_app
+      SPRING_DATASOURCE_USERNAME: todo_user
+      SPRING_DATASOURCE_PASSWORD: todo_password
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - todo-network
+
+networks:
+  todo-network:
+    driver: bridge
+volumes:
+  db-data: 
